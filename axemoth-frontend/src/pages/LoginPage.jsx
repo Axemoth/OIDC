@@ -75,7 +75,6 @@ export default function LoginPage({ onLoginSuccess }) {
           <div className="space-y-2">
             <div className="flex justify-between items-center">
               <label htmlFor="login-password" className="block text-[#a3a3a3] text-[11px] font-semibold tracking-[0.8px] uppercase">PASSWORD</label>
-              <a href="#" className="text-cyan-400 text-[12px] hover:text-cyan-300 transition-colors">Forgot password?</a>
             </div>
             <div className="relative group">
               <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#525252] transition-colors group-focus-within:text-cyan-400 pointer-events-none" />
