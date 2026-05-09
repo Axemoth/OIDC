@@ -7,12 +7,19 @@ dotenv.config();
 const loadKey = (envVar, filename) => {
   // 1. Check for Environment Variable
   if (process.env[envVar]) {
-    // Check if it's base64 encoded (common for Azure/Vercel keys)
-    const key = process.env[envVar];
+    let key = process.env[envVar];
+    
+    // Handle escaped newlines (Azure sometimes stores \n as literal \\n)
+    key = key.replace(/\\n/g, '\n');
+    
+    // If it looks like a PEM key, normalize and return
     if (key.includes("-----BEGIN")) {
-      return key;
+      return key.replace(/\r\n/g, '\n');
     }
-    return Buffer.from(key, 'base64').toString('utf8');
+    
+    // Otherwise, decode from base64 and normalize line endings
+    const decoded = Buffer.from(key, 'base64').toString('utf8');
+    return decoded.replace(/\r\n/g, '\n');
   }
 
   // 2. Fallback to local file
