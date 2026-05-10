@@ -25,10 +25,10 @@ export default function LoginPage({ onLoginSuccess }) {
       if (!res.ok) throw new Error(data.error || "Login failed");
 
       localStorage.setItem("access_token", data.token);
-      
+
       const params = new URLSearchParams(window.location.search);
       const returnTo = params.get("return_to");
-      
+
       if (returnTo) {
         window.location.href = returnTo;
       } else {
@@ -45,7 +45,7 @@ export default function LoginPage({ onLoginSuccess }) {
     <div className="relative w-full bg-[#0f0f0f]/80 backdrop-blur-[40px] border border-white/10 rounded-[20px] shadow-[0_0_0_1px_rgba(255,255,255,0.03),0_20px_50px_-12px_rgba(0,0,0,0.6),0_0_80px_-20px_rgba(14,165,233,0.15)] overflow-hidden">
       {/* Top Gradient Bar */}
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-600" />
-      
+
       <div className="pt-10 px-9 pb-2 text-center">
         <div className="mx-auto w-14 h-14 mb-5 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center shadow-[0_8px_24px_-4px_rgba(14,165,233,0.4)] transition-transform duration-300 hover:rotate-6 hover:scale-105">
           <span className="text-white text-[22px] font-black tracking-[-1px]">AX</span>
@@ -97,9 +97,9 @@ export default function LoginPage({ onLoginSuccess }) {
             </div>
           )}
 
-          <button 
-            type="submit" 
-            className="w-full h-[46px] mt-1 flex items-center justify-center gap-2 bg-white text-[#0a0a0a] border-none rounded-xl text-sm font-semibold transition-all duration-200 hover:bg-[#e5e5e5] hover:-translate-y-[1px] hover:shadow-[0_4px_12px_rgba(255,255,255,0.1)] active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none group" 
+          <button
+            type="submit"
+            className="w-full h-[46px] mt-1 flex items-center justify-center gap-2 bg-white text-[#0a0a0a] border-none rounded-xl text-sm font-semibold transition-all duration-200 hover:bg-[#e5e5e5] hover:-translate-y-[1px] hover:shadow-[0_4px_12px_rgba(255,255,255,0.1)] active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none group"
             disabled={loading}
           >
             {loading ? (
@@ -117,11 +117,11 @@ export default function LoginPage({ onLoginSuccess }) {
       <div className="py-5 px-9 text-center border-t border-white/5">
         <p className="text-[#737373] text-[13px] m-0">
           New to Axemoth?{" "}
-          <Link 
+          <Link
             to="/signup"
             className="bg-transparent border-none text-[#f5f5f5] font-medium p-0 cursor-pointer no-underline transition-colors hover:text-cyan-400"
           >
-            Create an account
+            Create your account
           </Link>
         </p>
       </div>
